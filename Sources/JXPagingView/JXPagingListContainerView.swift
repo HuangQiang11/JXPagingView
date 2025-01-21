@@ -534,6 +534,12 @@ extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionVie
             willAppearIndex = -1
         }
         delegate?.listContainerViewDidEndScrolling(self)
+        
+        let percent = scrollView.contentOffset.x/scrollView.bounds.size.width
+        var current = Int(floor(Double(percent)))
+        if validListDict[current] == nil {
+            didClickSelectedItem(at: current)
+        }
     }
 
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
