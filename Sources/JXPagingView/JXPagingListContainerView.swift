@@ -524,6 +524,7 @@ extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionVie
     }
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        listDidAppearOrDisappear(scrollView: scrollView)
         //滑动到一半又取消滑动处理
         if willAppearIndex != -1 || willDisappearIndex != -1 {
             listWillDisappear(at: willAppearIndex)
